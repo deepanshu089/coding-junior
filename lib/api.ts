@@ -1,4 +1,4 @@
-import { UserType } from '@/types/user';
+import { UserType, AddUserFormState } from '@/types/user';
 
 /**
  * Fetches users from the JSONPlaceholder API
@@ -20,7 +20,7 @@ export async function fetchUsers(): Promise<UserType[]> {
 /**
  * Adds a new user locally
  */
-export async function addUser(userData: Partial<UserType>): Promise<UserType> {
+export async function addUser(userData: AddUserFormState): Promise<UserType> {
   // Simulate API delay
   await new Promise(resolve => setTimeout(resolve, 1000));
   
@@ -29,14 +29,14 @@ export async function addUser(userData: Partial<UserType>): Promise<UserType> {
   // Create a new user with required fields
   const newUser: UserType = {
     id: Date.now(), // Use timestamp as temporary ID
-    name: userData.name || '',
-    username: userData.name?.toLowerCase().replace(/\s+/g, '_') || '',
-    email: userData.email || '',
+    name: userData.name,
+    username: userData.name.toLowerCase().replace(/\s+/g, '_'),
+    email: userData.email,
     address: {
-      street: userData.street || '',
+      street: userData.address.street,
       suite: '',
-      city: userData.city || '',
-      zipcode: userData.zipcode || '',
+      city: userData.address.city,
+      zipcode: userData.address.zipcode,
       geo: { lat: '', lng: '' }
     },
     phone: '',

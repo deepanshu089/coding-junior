@@ -18,7 +18,7 @@ export function AddressStep({ form }: AddressStepProps) {
       <div className="space-y-4">
         <FormField
           control={form.control}
-          name="street"
+          name="address.street"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Street Address</FormLabel>
@@ -32,7 +32,7 @@ export function AddressStep({ form }: AddressStepProps) {
 
         <FormField
           control={form.control}
-          name="city"
+          name="address.city"
           render={({ field }) => (
             <FormItem>
               <FormLabel>City</FormLabel>
@@ -46,7 +46,7 @@ export function AddressStep({ form }: AddressStepProps) {
 
         <FormField
           control={form.control}
-          name="zipcode"
+          name="address.zipcode"
           render={({ field }) => (
             <FormItem>
               <FormLabel>ZIP Code</FormLabel>

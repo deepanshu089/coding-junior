@@ -25,7 +25,9 @@ export interface UserType {
 export interface AddUserFormState {
   name: string;
   email: string;
-  street: string;
-  city: string;
-  zipcode: string;
+  address: {
+    street: string;
+    city: string;
+    zipcode: string;
+  };
 }

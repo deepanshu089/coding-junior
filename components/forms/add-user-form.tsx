@@ -30,9 +30,11 @@ export default function AddUserForm() {
     defaultValues: {
       name: "",
       email: "",
-      street: "",
-      city: "",
-      zipcode: "",
+      address: {
+        street: "",
+        city: "",
+        zipcode: "",
+      },
     },
     mode: "onChange",
   });
@@ -59,7 +61,7 @@ export default function AddUserForm() {
     if (step === 1) {
       canProceed = await form.trigger(["name", "email"]);
     } else if (step === 2) {
-      canProceed = await form.trigger(["street", "city", "zipcode"]);
+      canProceed = await form.trigger(["address.street", "address.city", "address.zipcode"]);
     }
 
     if (canProceed) {
