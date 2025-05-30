@@ -9,28 +9,33 @@ interface ReviewStepProps {
 }
 
 export function ReviewStep({ form }: ReviewStepProps) {
-  const { name, email, street, city, zipcode } = form.getValues();
+  const { name, email, address } = form.getValues();
 
   return (
     <div className="space-y-6">
       <h2 className="text-lg font-medium">Review Information</h2>
-      <p className="text-sm text-muted-foreground">Please review the information below before submitting.</p>
+      <p className="text-sm text-muted-foreground">Please review the information before submitting.</p>
 
-      <div className="bg-muted/40 p-4 rounded-lg">
-        <h3 className="font-medium text-lg mb-2">{name}</h3>
-        
-        <div className="space-y-2 text-sm">
-          <div className="flex items-center gap-2">
-            <Mail size={16} className="text-muted-foreground" />
-            <span>{email}</span>
+      <div className="space-y-4">
+        <div className="grid gap-2">
+          <h3 className="font-medium">Basic Information</h3>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            <div className="text-muted-foreground">Name:</div>
+            <div>{name}</div>
+            <div className="text-muted-foreground">Email:</div>
+            <div>{email}</div>
           </div>
-          
-          <div className="flex items-start gap-2">
-            <MapPin size={16} className="text-muted-foreground mt-0.5" />
-            <div>
-              <p>{street}</p>
-              <p>{city}, {zipcode}</p>
-            </div>
+        </div>
+
+        <div className="grid gap-2">
+          <h3 className="font-medium">Address Information</h3>
+          <div className="grid grid-cols-2 gap-2 text-sm">
+            <div className="text-muted-foreground">Street:</div>
+            <div>{address.street}</div>
+            <div className="text-muted-foreground">City:</div>
+            <div>{address.city}</div>
+            <div className="text-muted-foreground">ZIP Code:</div>
+            <div>{address.zipcode}</div>
           </div>
         </div>
       </div>
