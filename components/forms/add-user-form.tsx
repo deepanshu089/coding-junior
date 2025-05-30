@@ -144,7 +144,7 @@ export default function AddUserForm() {
 
                 <div className="flex gap-2">
                   {step < 3 ? (
-                    <Button type="button\" onClick={goToNextStep}>
+                    <Button type="button" onClick={goToNextStep}>
                       Next
                     </Button>
                   ) : (
